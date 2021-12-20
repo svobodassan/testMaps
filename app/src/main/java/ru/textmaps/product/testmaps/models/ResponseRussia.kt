@@ -15,7 +15,7 @@ data class ResponseRussia(
         @SerializedName("type")
         val type: String?
     ) {
-        data class Geometry(
+        data class Geometry (
             @SerializedName("coordinates")
             val coordinates: List<List<List<List<Double?>?>?>?>?,
             @SerializedName("type")
