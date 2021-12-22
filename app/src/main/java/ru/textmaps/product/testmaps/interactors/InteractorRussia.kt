@@ -1,6 +1,5 @@
 package ru.textmaps.product.testmaps.interactors
 
-import air.ru.obi.mobile.core.network.*
 import android.util.Log
 import ru.textmaps.product.testmaps.models.ResponseRussia
 import ru.textmaps.product.testmaps.network.MapsRepository

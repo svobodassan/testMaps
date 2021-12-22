@@ -1,9 +1,5 @@
 package ru.textmaps.product.testmaps.presentation
 
-import air.ru.obi.mobile.core.network.Error
-import air.ru.obi.mobile.core.network.NotFoundError
-import air.ru.obi.mobile.core.network.Success
-import air.ru.obi.mobile.core.network.TokenError
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,7 +8,11 @@ import com.google.maps.android.SphericalUtil
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
+import ru.textmaps.product.testmaps.interactors.Error
 import ru.textmaps.product.testmaps.interactors.InteractorRussia
+import ru.textmaps.product.testmaps.interactors.NotFoundError
+import ru.textmaps.product.testmaps.interactors.Success
+import ru.textmaps.product.testmaps.interactors.TokenError
 
 class MapsActivityViewModel(val interactorRussia: InteractorRussia) : ViewModel() {
 
@@ -23,7 +23,6 @@ class MapsActivityViewModel(val interactorRussia: InteractorRussia) : ViewModel(
 
     private val _distanse = MutableSharedFlow<Long>()
     val distanse: SharedFlow<Long> = _distanse
-
 
     var listRussiaBig1: List<List<Double?>?>? = null
     var listRussiaBig2: List<List<Double?>?>? = null
@@ -69,7 +68,7 @@ class MapsActivityViewModel(val interactorRussia: InteractorRussia) : ViewModel(
         }
     }
 
-    private suspend fun combinePointsAndEmit(list: List<List<Double?>?>?, listPoint: ArrayList<LatLng>) {
+    suspend fun combinePointsAndEmit(list: List<List<Double?>?>?, listPoint: ArrayList<LatLng>) {
         list?.map {
             listPoint.add(LatLng(it?.get(1) ?: 0.0, it?.get(0) ?: 0.0))
         }
@@ -79,7 +78,7 @@ class MapsActivityViewModel(val interactorRussia: InteractorRussia) : ViewModel(
         _distanse.emit(distanse)
     }
 
-    private fun computeMeters(listPoint: ArrayList<LatLng>): Double {
+    fun computeMeters(listPoint: ArrayList<LatLng>): Double {
 
         var distance = 0.0
 

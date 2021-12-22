@@ -1,12 +1,15 @@
 package ru.textmaps.product.testmaps
 
-import androidx.test.platform.app.InstrumentationRegistry
-import androidx.test.ext.junit.runners.AndroidJUnit4
 
+
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
+
+
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -16,9 +19,14 @@ import org.junit.Assert.*
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
+    fun useAppContextPositive() {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("ru.vtb.product.testmaps", appContext.packageName)
+        assertEquals("ru.textmaps.product.testmaps", appContext.packageName)
+    }
+
+    @Test
+    fun useAppContextNegative() {
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+        assertNotEquals("", appContext.packageName)
     }
 }

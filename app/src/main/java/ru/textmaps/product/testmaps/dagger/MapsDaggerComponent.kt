@@ -1,4 +1,4 @@
-package air.ru.obi.mobile.core.dagger
+package ru.textmaps.product.testmaps.dagger
 
 
 import dagger.Component

@@ -1,4 +1,4 @@
-package air.ru.obi.mobile.core.network
+package ru.textmaps.product.testmaps.interactors
 
 sealed class AppError
 

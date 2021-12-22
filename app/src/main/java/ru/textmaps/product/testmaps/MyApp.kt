@@ -1,8 +1,9 @@
 package ru.textmaps.product.testmaps
 
-import air.ru.obi.mobile.core.dagger.DaggerMapsDaggerComponent
-import air.ru.obi.mobile.core.dagger.MapsDaggerComponent
+
 import android.app.Application
+import ru.textmaps.product.testmaps.dagger.DaggerMapsDaggerComponent
+import ru.textmaps.product.testmaps.dagger.MapsDaggerComponent
 
 class MyApp: Application() {
 
